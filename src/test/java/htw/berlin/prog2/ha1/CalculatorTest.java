@@ -87,7 +87,7 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
-
+//TODO hier weitere Tests erstellen
     @Test
     @DisplayName("schould display results after multiplying two numbers")
     void testMultiplication(){
@@ -104,10 +104,39 @@ class CalculatorTest {
         assertEquals(expected, actual);
 
     }
+// ROTE TESTS 1
+@Test       //Stürzt ab wenn man keine Operation wählt
+@DisplayName("should display number when equals is pressed without operation")
+void testEqualsWithoutOperation() {
+    Calculator calc = new Calculator();
+
+    calc.pressDigitKey(5);       
+    calc.pressEqualsKey();
+
+    String expected = "5";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+}
+// ROTE TEST 2
+@Test
+@DisplayName6("should keep latestValue after first press of clear key")
+void testClearKey() {
+    Calculator calc = new Calculator();
+
+    calc.pressDigitKey(5);
+    calc.pressBinaryOperationKey("+");
+    calc.pressDigitKey(3);
+    calc.pressClearKey();               // erstes Drücken - nur screen löschen
+    calc.pressDigitKey(2);        // neue Zahl eingeben
+    calc.pressEqualsKey();              // + sollte noch gespeichert sein → 5 + 2 = 7
+
+    String expected = "7";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+}
 
     
-
-
-    //TODO hier weitere Tests erstellen
 }
 
