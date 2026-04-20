@@ -71,9 +71,9 @@ public class Calculator {
      * der Bildschirminhalt mit dem Ergebnis aktualisiert.
      * @param operation "√" für Quadratwurzel, "%" für Prozent, "1/x" für Inversion
      */
-    public void pressUnaryOperationKey(String operation) {
-        latestValue = Double.parseDouble(screen);
-        latestOperation = operation;
+    public void pressUnaryOperationKey(String operation) { 
+        latestValue = Double.parseDouble(screen);   // Falsch 
+        latestOperation = operation;                // Falsch
         var result = switch(operation) {
             case "√" -> Math.sqrt(Double.parseDouble(screen));
             case "%" -> Double.parseDouble(screen) / 100;
@@ -123,7 +123,7 @@ public class Calculator {
             case "-" -> latestValue - Double.parseDouble(screen);
             case "x" -> latestValue * Double.parseDouble(screen);
             case "/" -> latestValue / Double.parseDouble(screen);
-            default -> throw new IllegalArgumentException();
+            default -> throw new IllegalArgumentException(); // Fehler: Soll nichts ausgeben.
         };
         screen = Double.toString(result);
         if(screen.equals("Infinity")) screen = "Error";

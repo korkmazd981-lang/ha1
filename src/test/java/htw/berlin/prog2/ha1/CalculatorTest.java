@@ -120,7 +120,7 @@ void testEqualsWithoutOperation() {
 }
 // ROTE TEST 2
 @Test
-@DisplayName6("should keep latestValue after first press of clear key")
+@DisplayName("should keep latestValue after first press of clear key")
 void testClearKey() {
     Calculator calc = new Calculator();
 
